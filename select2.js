@@ -913,7 +913,6 @@ the specific language governing permissions and limitations under the Apache Lic
                                 node.append(label);
                             }
 
-
                             if (compound) {
 
                                 innerContainer=$("<ul></ul>");
@@ -923,7 +922,10 @@ the specific language governing permissions and limitations under the Apache Lic
                             }
 
                             node.data("select2-data", result);
-                            container.append(node);
+                            if (formatted!==undefined) {
+                                container.append(node);
+                            }
+
                         }
 
                         liveRegion.text(opts.formatMatches(results.length));
@@ -2354,7 +2356,7 @@ the specific language governing permissions and limitations under the Apache Lic
 
             container.empty();
             if (data !== null) {
-                formatted=this.opts.formatSelection(data, container, this.opts.escapeMarkup);
+                formatted=this.opts.formatSelection(data, container, this.opts.escapeMarkup, this.opts);
             }
             if (formatted !== undefined) {
                 container.append(formatted);
@@ -2933,9 +2935,9 @@ the specific language governing permissions and limitations under the Apache Lic
                 formatted,
                 cssClass;
 
-            formatted=this.opts.formatSelection(data, choice.find("div"), this.opts.escapeMarkup);
+            formatted=this.opts.formatSelection(data, choice.find("div"), this.opts.escapeMarkup, this);
             if (formatted != undefined) {
-                choice.find("div").replaceWith("<div>"+formatted+"</div>");
+                choice.find("div").replaceWith(formatted);
             }
             cssClass=this.opts.formatSelectionCssClass(data, choice.find("div"));
             if (cssClass != undefined) {
