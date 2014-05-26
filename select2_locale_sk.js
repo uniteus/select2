@@ -35,11 +35,11 @@
         },
         formatSelectionTooBig: function (limit) {
             if (limit == 1) {
-                return "Môžete zvoliť len jednu položku";
+                return "Môžeš zvoliť len jednu položku";
             } else if (limit <= 4) {
-                return "Môžete zvoliť najviac "+smallNumbers[limit](false)+" položky";
+                return "Môžeš zvoliť najviac "+smallNumbers[limit](false)+" položky";
             } else {
-                return "Môžete zvoliť najviac "+limit+" položiek";
+                return "Môžeš zvoliť najviac "+limit+" položiek";
             }
         },
         formatLoadMore: function (pageNumber) { return "Načítavajú sa ďalšie výsledky…"; },
